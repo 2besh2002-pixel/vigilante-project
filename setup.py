@@ -38,7 +38,7 @@ setup(
     },
     include_package_data=True,
     package_data={
-        'intrusion_detection': ['*.env.example'],
+        'intrusion_detection': ['*.env.example', 'assets/*'],
     },
     keywords=[
         "security",

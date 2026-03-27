@@ -35,13 +35,10 @@ def _resolve_logo_path() -> str: #بعد تعديل بشاير
         return str(local_path)
 
     try:
-        pkg_path = resources.files('intrusion_detection').joinpath('assets', 'Vigilante_logo.png')
-        if pkg_path.exists():
-            return str(pkg_path)
-
-        with resources.as_file(pkg_path) as path_in_archive:
-            if path_in_archive.exists():
-                return str(path_in_archive)
+        package_asset = resources.files(__package__).joinpath('assets', 'Vigilante_logo.png')
+        with resources.as_file(package_asset) as resource_path:
+            if resource_path.exists():
+                return str(resource_path)
     except Exception:
         pass
 
