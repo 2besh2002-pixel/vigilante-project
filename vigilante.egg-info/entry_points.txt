@@ -1,0 +1,2 @@
+[console_scripts]
+vigilante = intrusion_detection.cli:main
