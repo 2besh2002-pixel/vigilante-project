@@ -3,7 +3,7 @@
 Vigilante Intrusion Detection System - GUI
 Production version with real authentication and database integration
 """
-
+#
 import flet as ft
 from flet import (
     Page, Container, Column, Row, Text, 
