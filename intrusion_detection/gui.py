@@ -459,8 +459,6 @@ class VigilanteGUI:
     def create_header(self) -> Container:
         """Create application header with role badge"""
         
-        # Determine role badge color
-        role_color = AppTheme.PRIMARY if self.auth.is_admin() else AppTheme.INFO
         role_icon = ft.Icons.ADMIN_PANEL_SETTINGS if self.auth.is_admin() else ft.Icons.VISIBILITY
         
         # Safely get username
@@ -471,12 +469,7 @@ class VigilanteGUI:
                 controls=[
                     Row(
                         controls=[
-                            # Icon(
-                            #     ft.Icons.SECURITY,
-                            #     size=24,
-                            #     color=AppTheme.PRIMARY,
-                            # ),
-                            ft.Image( #بعد تعديل بشاير
+                            ft.Image( 
                                 src=logo_path,
                                 width=70,
                                 height=70,
@@ -500,25 +493,26 @@ class VigilanteGUI:
                             Container(
                                 content=Row(
                                     controls=[
-                                        Icon(role_icon, size=16, color=role_color),
+                                        Icon(role_icon, size=16, color="#000000"),
                                         Text(
                                             self.auth.current_role or "Analyst",
                                             size=14,
-                                            color=role_color,
+                                            color= AppTheme.BACKGROUND,
                                             weight=ft.FontWeight.BOLD,
                                         ),
                                         Text(
                                             f"({username})",
-                                            size=12,
-                                            color=AppTheme.TEXT_SECONDARY,
+                                            size=14,
+                                            color=AppTheme.BACKGROUND,
+                                            weight=ft.FontWeight.BOLD,
                                         ),
                                     ],
                                     spacing=5,
                                 ),
-                                bgcolor=role_color + "20",
+                                bgcolor=AppTheme.SUCCESS,
                                 padding=ft.Padding.all(8),
                                 border_radius=ft.BorderRadius.all(5),
-                                border=ft.Border.all(1, role_color + "40"),
+                                border=ft.Border.all(1, AppTheme.SUCCESS ),
                             ),
                             self.create_status_indicator(),
                         ],
@@ -537,7 +531,7 @@ class VigilanteGUI:
         return Container(
             width=10,
             height=10,
-            bgcolor=AppTheme.SUCCESS,
+            bgcolor=AppTheme.SUCCESS ,
             border_radius=ft.BorderRadius.all(5),
             animate=Animation(duration=300, curve=AnimationCurve.BOUNCE_OUT),
         )
