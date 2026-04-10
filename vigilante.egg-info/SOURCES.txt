@@ -1,6 +1,3 @@
-MANIFEST.in
-README.MD
-requirements.txt
 setup.py
 intrusion_detection/__init__.py
 intrusion_detection/auth.py
@@ -11,7 +8,6 @@ intrusion_detection/main.py
 intrusion_detection/model.py
 intrusion_detection/model_trainer.py
 intrusion_detection/utils.py
-intrusion_detection/assets/Vigilante_logo.png
 vigilante.egg-info/PKG-INFO
 vigilante.egg-info/SOURCES.txt
 vigilante.egg-info/dependency_links.txt
