@@ -2458,7 +2458,7 @@ Examples:
         """Display version information"""
         console.print("[bold cyan]Vigilante Intrusion Detection System[/bold cyan]")
         console.print("Version: 1.0.0")
-        console.print("Model: Deterministic DCA + Denoising Autoencoder")
+        console.print("Model: RNSA + KNN")
         console.print("Database: PostgreSQL (Neon)")
         console.print("Roles: Administrator, Analyst")
         console.print("Author: Vigilante Team")
