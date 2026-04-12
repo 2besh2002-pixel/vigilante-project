@@ -1,7 +1,7 @@
 # ============================================================
 #  Vigilante - One-Line Installer (Windows PowerShell)
 #  Usage (paste into PowerShell):
-#    irm https://raw.githubusercontent.com/AljawharaK/vigilante/main/install.ps1 | iex
+#    irm https://raw.githubusercontent.com/2besh2002-pixel/vigilante-CopyBashayer/main/install.ps1 | iex
 # ============================================================
 
 $ErrorActionPreference = "Stop"
@@ -49,7 +49,7 @@ Ok "pipx ready."
 Step "3/3" "Installing Vigilante via pipx..."
 
 $pipxCmd = if (Get-Command pipx -ErrorAction SilentlyContinue) { "pipx" } else { "$python -m pipx" }
-Invoke-Expression "$pipxCmd install git+https://github.com/AljawharaK/vigilante --force"
+Invoke-Expression "$pipxCmd install git+https://github.com/2besh2002-pixel/vigilante-CopyBashayer --force"
 
 # ── Write config ───────────────────────────────────────────
 $configDir = "$env:USERPROFILE\.vigilante"

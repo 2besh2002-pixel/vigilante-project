@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================
 #  Vigilante - One-Line Installer (macOS & Linux)
-#  Usage: curl -fsSL https://raw.githubusercontent.com/AljawharaK/vigilante/main/install.sh | bash
+#  Usage: curl -fsSL https://raw.githubusercontent.com/2besh2002-pixel/vigilante-CopyBashayer/main/install.sh | bash
 # ============================================================
 
 set -e
@@ -52,7 +52,7 @@ ok "pipx ready."
 step "3/3" "Installing Vigilante via pipx..."
 
 PIPX_CMD="pipx"; command -v pipx &>/dev/null || PIPX_CMD="$PYTHON -m pipx"
-$PIPX_CMD install git+https://github.com/AljawharaK/vigilante --force
+$PIPX_CMD install git+https://github.com/2besh2002-pixel/vigilante-CopyBashayer --force
 
 # ── Write config ───────────────────────────────────────────
 CONFIG_DIR="$HOME/.vigilante"
