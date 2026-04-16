@@ -1496,13 +1496,7 @@ Path: {model.get('model_path', 'N/A')}
         
         # Safely get user info
         username = self.auth.current_user.get('username', 'Unknown') if self.auth.current_user else 'Unknown'
-        #email = self.auth.current_user.get('email', 'Not available') if self.auth.current_user else 'Not available'
-        try:
-          user_data = self.get_all_users()
-          current = next((u for u in user_data if u['id'] == self.auth.current_user['id']), {})
-          email = current.get('email', 'Not available')
-        except:
-          email = 'Not available'
+        email = self.auth.current_user.get('email', 'Not available') if self.auth.current_user else 'Not available'
         role = self.auth.current_role or 'Analyst'
         
         return Container(
