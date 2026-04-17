@@ -13,6 +13,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, Depends, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 import uvicorn
 
@@ -110,6 +111,35 @@ async def get_admin_user(current_user: Dict = Depends(get_current_user)):
     if not auth.is_admin():
         raise HTTPException(status_code=403, detail="Admin privileges required")
     return current_user
+
+# ---------- Root Endpoint ----------
+@app.get("/")
+async def root():
+    """
+    Root endpoint - provides API information and links to documentation.
+    """
+    return {
+        "message": "Welcome to Vigilante Intrusion Detection System API",
+        "version": "1.0.0",
+        "documentation": "/docs",
+        "openapi": "/openapi.json",
+        "endpoints": {
+            "health": "/api/health",
+            "login": "/api/login",
+            "verify_otp": "/api/verify-otp",
+            "logout": "/api/logout",
+            "change_password": "/api/change-password",
+            "models": "/api/models",
+            "train": "/api/train",
+            "detect": "/api/detect",
+            "detections": "/api/detections",
+            "admin_user_create": "/api/admin/user-create",
+            "admin_user_modify": "/api/admin/user-modify",
+            "admin_user_deactivate": "/api/admin/user-deactivate",
+            "admin_audit_logs": "/api/admin/audit-logs",
+            "admin_system_report": "/api/admin/system-report"
+        }
+    }
 
 # ---------- Authentication Endpoints ----------
 @app.post("/api/login")
